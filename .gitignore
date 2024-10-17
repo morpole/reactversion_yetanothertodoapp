@@ -1,11 +1,10 @@
 # Global dependencies
 node_modules
-.env
 .DS_Store
 
 # Backend Specific
-/backend/routes/.env
-/backend/node_modules/
+/backend/.env
+
 
 # Frontend
 /frontend/build

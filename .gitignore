@@ -3,20 +3,20 @@ node_modules
 .DS_Store
 
 # Backend Specific
-/backend/routes/.env
+/backend/.env
 
 
 # Frontend
-/frontend/build
-/frontend/.pnp
-/frontend/.pnp.js
-/frontend/.DS_Store
-/frontend/.env.local
-/frontend/.env.development.local
-/frontend/.env.test.local
-/frontend/env.production.local
+frontend/build
+frontend/.pnp
+frontend/.pnp.js
+frontend/.DS_Store
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/env.production.local
 
 # Frontend logs
-/frontend/npm-debug.log*
-/frontend/yarn-debug.log*
-/frontend/yarn-error.log*
+frontend/npm-debug.log*
+frontend/yarn-error.log*
+frontend/yarn-debug.log*

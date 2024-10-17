@@ -78,7 +78,7 @@ function App() {
         <h1 className="text-xl text-gray-100">Todo</h1>
         <div className="flex items-center space-x-4">
           <a
-            href="https://github.com/morpole/yet-another-todo-app.git"
+            href="https://github.com/morpole/reactversion_yetanothertodoapp.git"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-100 hover:text-gray-300"

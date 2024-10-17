@@ -1,2 +1,22 @@
-node_modules\n.env\n.DS_Store
+# Global dependencies
+node_modules
 .env
+.DS_Store
+
+# Backend Specific
+/backend/.env
+
+# Frontend
+/frontend/build
+/frontend/.pnp
+/frontend/.pnp.js
+/frontend/.DS_Store
+/frontend/.env.local
+/frontend/.env.development.local
+/frontend/.env.test.local
+/frontend/env.production.local
+
+# Frontend logs
+/frontend/npm-debug.log*
+/frontend/yarn-debug.log*
+/frontend/yarn-error.log*

@@ -4,7 +4,8 @@ node_modules
 .DS_Store
 
 # Backend Specific
-/backend/.env
+/backend/routes/.env
+/backend/node_modules/
 
 # Frontend
 /frontend/build

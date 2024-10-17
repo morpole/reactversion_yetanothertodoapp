@@ -1,6 +1,4 @@
-# Global dependencies
-node_modules
-.DS_Store
+
 
 # Backend Specific
 /backend/.env

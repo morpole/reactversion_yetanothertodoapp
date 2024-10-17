@@ -4,7 +4,7 @@ node_modules
 
 # Backend Specific
 /backend/.env
-
+/backend/node_modules
 
 # Frontend
 frontend/build

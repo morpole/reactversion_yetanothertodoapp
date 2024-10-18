@@ -75,7 +75,7 @@ function App() {
   return (
     <div className="app-container">
       <header className="bg-gray-800 p-4 flex items-center justify-between">
-        <h1 className="text-xl text-gray-100">Todo</h1>
+        <h1 className="ultra-regular">todo</h1>
         <div className="flex items-center space-x-4">
           <a
             href="https://github.com/morpole/reactversion_yetanothertodoapp.git"

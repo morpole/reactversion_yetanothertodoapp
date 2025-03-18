@@ -11,49 +11,49 @@
   
 
 .bg-gray-800 {
-    position: sticky; /* Fix the header at the top */
-    top: 0; /* Position it at the very top */
-    left: 0; /* Align it to the left */
-    right: 0; /* Stretch it to the right */
+    position: sticky; 
+    top: 0;
+    left: 0; 
+    right: 0; 
     background-color: #2d3748; 
-    padding: 1rem; /* Add some padding for aesthetics */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for depth */
-    z-index: 1000; /* Ensure it stays above other content */
+    padding: 1rem; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    z-index: 1000; 
   }
 
 .container {
-  background-color: #1f2937; /* Dark background */
+  background-color: #1f2937; 
   padding: 2rem;
-  box-shadow: 0px 4px 15px rgba(168, 23, 23, 0.1); /* Soft shadow for depth */
+  box-shadow: 0px 4px 15px rgba(168, 23, 23, 0.1); 
   position: relative;
   margin-top: 0.3vh;
-  border-radius: 8px; /* Rounded corners */
+  border-radius: 8px; 
 }
 
 .task-form {
   display: flex;
-  align-items: center; /* Vertically align the input and button */
-  width: 100%; /* Ensure the form takes up the full width */
-  gap: 10px; /* Add some space between the input and button */
+  align-items: center; 
+  width: 100%; 
+  gap: 10px; 
   padding-bottom: 0.75rem;
 }
 
 .task-input {
-  flex-grow: 1; /* Makes the input take up the remaining space */
-  background-color: #343535; /* Dark input background */
-  border: 1px solid #f7f8f8; /* Border color */
-  color: #f9fafc; /* Light text color */
+  flex-grow: 1; 
+  background-color: #343535; 
+  border: 1px solid #f7f8f8; 
+  color: #f9fafc; 
   padding: 0.75rem;
-  border-radius: 0.375rem; /* Rounded corners */
+  border-radius: 0.375rem; 
 }
 
 
 form input::placeholder {
-  color: #adb5bd; /* Light gray placeholder */
+  color: #adb5bd; 
 }
 
 form button {
-  background-color: #4CAF50; /* Green background */
+  background-color: #4CAF50; 
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 0.375rem;
@@ -62,9 +62,9 @@ form button {
 }
 
 form button:active {
-  transform: translateY(2px); /* Moves button 2px down */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Lighter shadow to simulate depth */
-  background-color:  #317224; /* Slightly darker background on press */
+  transform: translateY(2px); 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  background-color:  #317224; 
 }
 
 .bg-blue-500:hover {
@@ -72,18 +72,18 @@ form button:active {
 }
 
 .bg-blue-500:active {
-  transform: translateY(2px); /* Moves button 2px down */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Lighter shadow to simulate depth */
-  background-color:  #3d68c5; /* Slightly darker background on press */
+  transform: translateY(2px); 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  background-color:  #3d68c5; 
 }
 
 .bg-red-500:hover {
   background-color: #f32323; 
 }
 .bg-red-500:active {
-  transform: translateY(2px); /* Moves button 2px down */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Lighter shadow to simulate depth */
-  background-color:  #f32323; /* Slightly darker background on press */
+  transform: translateY(2px); 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  background-color:  #f32323; 
 }
 /* Task item styling */
 ul {
@@ -92,7 +92,7 @@ ul {
 }
 
 li {
-  background-color: #2d3748; /* Dark background */
+  background-color: #2d3748; 
   color: #f9fafc;
   border-radius: 0.5rem;
   padding: 1rem;
@@ -100,29 +100,29 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05); /* Light shadow */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
   transition: background-color 0.3s ease;
 }
 
 li:hover {
-  background-color: #4b5566; /* Darker background on hover */
+  background-color: #4b5566; 
 }
 
 li span {
-  margin-left: 10px; /* Space between the icon and the text */
-  color: #f9fafc; /* Light text */
-  flex-grow: 1; /* Allow the span to take available space */
-  word-wrap: break-word; /* Ensure long text wraps properly */
+  margin-left: 10px; 
+  color: #f9fafc; 
+  flex-grow: 1; 
+  word-wrap: break-word; 
 }
 
 .icon-container {
-  display: flex; /* Align edit and delete icons in a row */
-  gap: 10px; /* Space between the icons */
-  margin-left: auto; /* Push icons to the right */
+  display: flex; 
+  gap: 10px; 
+  margin-left: auto; 
 }
 
 .completion-btn i {
-  color: #4CAF50; /* Matches the submit button color */
+  color: #4CAF50; 
 }
 .completed {
   text-decoration: line-through;
@@ -132,23 +132,23 @@ li span {
 
 .task-item {
   display: flex;
-  flex-direction: row; /* Default to row */
-  align-items: center; /* Center align items */
+  flex-direction: row; 
+  align-items: center;
 }
 
 .task-item.editing {
-  flex-direction: column; /* Change to column when editing */
-  align-items: flex-start; /* Align items to the left */
+  flex-direction: column; 
+  align-items: flex-start; 
 }
 
  .edit-task-form {
-  margin-top: 1rem; /* Space between task and form */
-  width: 100%; /* Full width of task item */
+  margin-top: 1rem; 
+  width: 100%; 
 } 
 
 .task-content {
   display: flex;
-  flex-grow: 1; /* Makes the content take up remaining space */
+  flex-grow: 1;
   
 }
 
@@ -176,8 +176,8 @@ li span {
   display: flex;
   flex-direction: column; 
   align-items: flex-start;
-  width: 100%; /* Form should take full width of the task */
-  margin-top: 1rem; /* Add space between the task and the form */
+  width: 100%; 
+  margin-top: 1rem; 
 }
 
 
@@ -190,14 +190,14 @@ li span {
 }
 
 .edit-task-form button {
-  margin-top: 0.5rem; /* Space between input and buttons */
+  margin-top: 0.5rem;
 }
 
 
 .edit-task-form-buttons {
   display: flex;
-  flex-direction: row; /* Place buttons side by side */
-  gap: .5ch; /* Space between the buttons */
+  flex-direction: row; 
+  gap: .5ch; 
   margin-top: 0.5rem;
 }
 

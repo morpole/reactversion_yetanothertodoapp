@@ -5,19 +5,23 @@ const path = require('path');
 const taskRoutes = require('./routes/tasks');
 require('dotenv').config({ path: path.join(__dirname, '.env') });
 
-
 const app = express();
 
+// Middleware
 app.use(bodyParser.json());
 app.use('/api/tasks', taskRoutes);
 
-
-
-// The "catchall" handler: for any request that doesn't
-// match one above, send back React's index.html file.
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'frontend', 'build', 'index.html'));
+// Health check endpoint
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'Backend is running', timestamp: new Date() });
 });
+
+// Temporarily disable serving the frontend for testing
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '..', 'frontend', 'build', 'index.html'));
+// });
+
+// MongoDB Connection
 const mongoUri = process.env.MONGO_URI;
 
 mongoose.connect(mongoUri)

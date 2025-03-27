@@ -5,12 +5,14 @@ import './App.css';
 function App() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
-  const [editingTaskId, setEditingTaskId] = useState(null); // Track the task being edited
-  const [editDescription, setEditDescription] = useState(''); // Track the new description
+  const [editingTaskId, setEditingTaskId] = useState(null);
+  const [editDescription, setEditDescription] = useState('');
+
+  const API_URL = process.env.REACT_APP_API_URL; // Base URL for API requests
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get('${process.env.REACT_APP_API_URL}/api/tasks');
+      const response = await axios.get(`${API_URL}/api/tasks`);
       setTasks(response.data.reverse());
     } catch (error) {
       console.error('Error fetching tasks:', error);
@@ -25,7 +27,7 @@ function App() {
     e.preventDefault();
     if (!newTask.trim()) return;
     try {
-      await axios.post('/api/tasks', { description: newTask });
+      await axios.post(`${API_URL}/api/tasks`, { description: newTask });
       setNewTask('');
       fetchTasks();
     } catch (error) {
@@ -35,7 +37,7 @@ function App() {
 
   const toggleComplete = async (id, completed) => {
     try {
-      await axios.patch(`/api/tasks/${id}`, { completed: !completed });
+      await axios.patch(`${API_URL}/api/tasks/${id}`, { completed: !completed });
       fetchTasks();
     } catch (error) {
       console.error('Error toggling task completion:', error);
@@ -44,7 +46,7 @@ function App() {
 
   const deleteTask = async (taskId) => {
     try {
-      await axios.delete(`/api/tasks/${taskId}`);
+      await axios.delete(`${API_URL}/api/tasks/${taskId}`);
       fetchTasks();
     } catch (error) {
       console.error('Error deleting task:', error);
@@ -64,9 +66,9 @@ function App() {
   const saveTaskEdit = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`/api/tasks/${editingTaskId}`, { description: editDescription });
-      setEditingTaskId(null); // Stop editing
-      fetchTasks(); // Fetch updated tasks
+      await axios.patch(`${API_URL}/api/tasks/${editingTaskId}`, { description: editDescription });
+      setEditingTaskId(null);
+      fetchTasks();
     } catch (error) {
       console.error('Error editing task:', error);
     }
@@ -103,50 +105,47 @@ function App() {
 
         <ul className="task-list">
           {tasks.map((task) => (
-          <li key={task._id} className={`task-item ${editingTaskId === task._id ? 'editing' : ''}`}>
-          <div className="task-content">
-            <button
-              onClick={() => toggleComplete(task._id, task.completed)}
-              className="completion-btn"
-            >
-              <i className="material-icons-outlined">
-                {task.completed ? 'check_circle' : 'radio_button_unchecked'}
-              </i>
-            </button>
-            <span className={`task-description ${task.completed ? 'completed' : ''}`}>
-          {task.description}
-        </span>
-          </div>
-          {editingTaskId !== task._id && (
-          <div className="task-actions">
-            {/* Edit and Delete buttons */}
-            <button onClick={() => startEditingTask(task._id, task.description)} className="edit-task">
-              <i className="material-icons-outlined">edit</i>
-            </button>
-            <button onClick={() => deleteTask(task._id)} className="delete-task">
-              <i className="material-icons-round">delete_outline</i>
-            </button>
-          </div>
-        )}
-          {/* Render the edit form beneath the task if it's being edited */}
-          {editingTaskId === task._id && (
-            <form onSubmit={saveTaskEdit} className="edit-task-form p-4 bg-gray-700 rounded-lg mt-2">
-              <input
-                type="text"
-                value={editDescription}
-                onChange={(e) => setEditDescription(e.target.value)}
-                className="w-full p-2 rounded bg-gray-800 text-gray-100"
-                placeholder="Edit task description"
-                required
-              />
-              <div className="edit-task-form-buttons">
-                <button type="submit" className="mt-2 bg-blue-500 text-white p-2 rounded">Save Edit</button>
-                <button type="button" onClick={cancelEdit} className="mt-2 bg-red-500 text-white p-2 rounded">Cancel</button>
+            <li key={task._id} className={`task-item ${editingTaskId === task._id ? 'editing' : ''}`}>
+              <div className="task-content">
+                <button
+                  onClick={() => toggleComplete(task._id, task.completed)}
+                  className="completion-btn"
+                >
+                  <i className="material-icons-outlined">
+                    {task.completed ? 'check_circle' : 'radio_button_unchecked'}
+                  </i>
+                </button>
+                <span className={`task-description ${task.completed ? 'completed' : ''}`}>
+                  {task.description}
+                </span>
               </div>
-            </form>
-          )}
-        </li>
-        
+              {editingTaskId !== task._id && (
+                <div className="task-actions">
+                  <button onClick={() => startEditingTask(task._id, task.description)} className="edit-task">
+                    <i className="material-icons-outlined">edit</i>
+                  </button>
+                  <button onClick={() => deleteTask(task._id)} className="delete-task">
+                    <i className="material-icons-round">delete_outline</i>
+                  </button>
+                </div>
+              )}
+              {editingTaskId === task._id && (
+                <form onSubmit={saveTaskEdit} className="edit-task-form p-4 bg-gray-700 rounded-lg mt-2">
+                  <input
+                    type="text"
+                    value={editDescription}
+                    onChange={(e) => setEditDescription(e.target.value)}
+                    className="w-full p-2 rounded bg-gray-800 text-gray-100"
+                    placeholder="Edit task description"
+                    required
+                  />
+                  <div className="edit-task-form-buttons">
+                    <button type="submit" className="mt-2 bg-blue-500 text-white p-2 rounded">Save Edit</button>
+                    <button type="button" onClick={cancelEdit} className="mt-2 bg-red-500 text-white p-2 rounded">Cancel</button>
+                  </div>
+                </form>
+              )}
+            </li>
           ))}
         </ul>
       </div>

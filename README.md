@@ -2,54 +2,52 @@ Standard Todo App (React Version)
 Created using React, Node.js, and MongoDB  
 Deployed on Render.com
 Frontend: https://reactversion-yetanothertodoapp-1.onrender.com/ 
+# Standard Todo App (React Version)
 
-Backend: https://reactversion-yetanothertodoapp.onrender.com 
-
+Created using React, Node.js, and MongoDB  
+## Deployed on Render.com  
+- **Frontend**: [https://reactversion-yetanothertodoapp-1.onrender.com/](https://reactversion-yetanothertodoapp-1.onrender.com/)  
+- **Backend**: [https://reactversion-yetanothertodoapp.onrender.com/](https://reactversion-yetanothertodoapp.onrender.com/)  
 <img src="./public/images/screenshot.jpeg" alt="screenshot" style="height:400px;">
 
-Yet Another Todo App (React Version)
-A robust todo application built with React, Node.js, Express, and MongoDB. This project provides a web-based interface to manage tasks, including creation, editing, deletion, and completion tracking, with data persisted in a MongoDB Atlas database. Unlike the vanilla JavaScript version, this version leverages React for a component-based frontend, separates the frontend and backend into distinct services on Render.com, and uses Axios for API requests. The UI is styled with Tailwind CSS and custom styles for a responsive experience.
-Key Differences from the Vanilla JavaScript Version
-Frontend Framework: Uses React for a component-based architecture, replacing the vanilla JavaScript, HTML, and DOM manipulation approach.
+# Yet Another Todo App (React Version)
 
-Deployment Structure: Separates the frontend and backend into two services on Render.com (a Static Site for the frontend and a Web Service for the backend), unlike the single-service deployment in the vanilla version.
+A robust todo application built with React, Node.js, Express, and MongoDB. This project provides a web-based interface to manage tasks, including creation, editing, deletion, and completion tracking, with data persisted in a MongoDB Atlas database. Unlike the [vanilla JavaScript version](https://github.com/morpole/yet-another-todo-app), this version leverages React for a component-based frontend, separates the frontend and backend into distinct services on Render.com, and uses Axios for API requests. The UI is styled with Tailwind CSS and custom styles for a responsive experience.
 
-API Communication: Utilizes Axios for HTTP requests to the backend, replacing the fetch API used in the vanilla version.
+## Key Differences from the Vanilla JavaScript Version
 
-State Management: Leverages React’s useState and useEffect hooks for state management and lifecycle handling, instead of manual DOM updates.
+- **Frontend Framework**: Uses React for a component-based architecture, replacing the vanilla JavaScript, HTML, and DOM manipulation approach.
+- **Deployment Structure**: Separates the frontend and backend into two services on Render.com (a **Static Site** for the frontend and a **Web Service** for the backend), unlike the single-service deployment in the vanilla version.
+- **API Communication**: Utilizes Axios for HTTP requests to the backend, replacing the `fetch` API used in the vanilla version.
+- **State Management**: Leverages React’s `useState` and `useEffect` hooks for state management and lifecycle handling, instead of manual DOM updates.
+- **CORS Handling**: Implements CORS on the backend to allow cross-origin requests from the separate frontend domain, which wasn’t needed in the single-service vanilla version.
+- **Testing**: The vanilla version includes Vitest unit tests, but this React version currently does not include frontend tests (future enhancement planned).
 
-CORS Handling: Implements CORS on the backend to allow cross-origin requests from the separate frontend domain, which wasn’t needed in the single-service vanilla version.
+## Features
 
-Testing: The vanilla version includes Vitest unit tests, but this React version currently does not include frontend tests (future enhancement planned).
+- **Task Management**: Add, edit, delete, and mark tasks as complete.
+- **Persistent Storage**: Tasks are stored in MongoDB Atlas for reliable data persistence.
+- **Responsive UI**: Built with Tailwind CSS and custom styles for desktop and mobile compatibility.
+- **Real-time Updates**: Tasks reload dynamically after CRUD operations using React state management.
+- **Separate Frontend and Backend**: Frontend and backend are deployed as separate services, communicating via RESTful API.
 
-Features
-Task Management: Add, edit, delete, and mark tasks as complete.
+## Prerequisites
 
-Persistent Storage: Tasks are stored in MongoDB Atlas for reliable data persistence.
+- Node.js (v16+ recommended) and npm installed.
+- A MongoDB Atlas account with a connection URI (stored in a `.env` file in the backend).
+- Git installed to clone this repository.
+- A code editor (e.g., VS Code).
+- Render.com account for deployment (optional, if deploying).
 
-Responsive UI: Built with Tailwind CSS and custom styles for desktop and mobile compatibility.
+## Setup Instructions
 
-Real-time Updates: Tasks reload dynamically after CRUD operations using React state management.
+### Clone the Repository
 
-Separate Frontend and Backend: Frontend and backend are deployed as separate services, communicating via RESTful API.
-
-Prerequisites
-Node.js (v16+ recommended) and npm installed.
-
-A MongoDB Atlas account with a connection URI (stored in a .env file in the backend).
-
-Git installed to clone this repository.
-
-A code editor (e.g., VS Code).
-
-Render.com account for deployment (optional, if deploying).
-
-Setup Instructions
-Clone the Repository
-bash
-
+```bash
 git clone https://github.com/morpole/reactversion_yetanothertodoapp.git
 cd reactversion_yetanothertodoapp
+```
+
 
 Backend Setup
 Navigate to the Backend Directory:

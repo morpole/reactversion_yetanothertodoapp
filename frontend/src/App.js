@@ -10,7 +10,7 @@ function App() {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get('/api/tasks');
+      const response = await axios.get('${process.env.REACT_APP_API_URL}/api/tasks');
       setTasks(response.data.reverse());
     } catch (error) {
       console.error('Error fetching tasks:', error);

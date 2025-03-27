@@ -8,6 +8,9 @@ require('dotenv').config({ path: path.join(__dirname, '.env') });
 const app = express();
 
 // Middleware
+app.use(cors({
+  origin: 'https://your-frontend-name.onrender.com' // Replace with your frontend URL
+}));
 app.use(bodyParser.json());
 app.use('/api/tasks', taskRoutes);
 

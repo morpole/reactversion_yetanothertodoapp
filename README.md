@@ -49,152 +49,145 @@ cd reactversion_yetanothertodoapp
 ```
 
 
-Backend Setup
-Navigate to the Backend Directory:
-bash
+## Backend Setup
+- Navigate to the Backend Directory:
 
+```bash
 cd backend
-
-Install Backend Dependencies:
-bash
-
+```
+- Install Backend Dependencies:
+```bash
 npm install
-
-Configure Environment:
-Create a .env file in the backend directory:
-bash
-
+```
+- Configure Environment:
+Create a `.env` file in the backend directory:
+```bash
 MONGO_URI=your_mongodb_atlas_connection_string
 PORT=5000
+```
+- Replace `your_mongodb_atlas_connection_string` with your actual MongoDB URI from Atlas.
 
-Replace your_mongodb_atlas_connection_string with your actual MongoDB URI from Atlas.
-
-Run the Backend:
-bash
-
+- Run the Backend:
+```bash
 npm start
+```
+The backend will run on `http://localhost:5000`.
 
-The backend will run on http://localhost:5000.
-
-Frontend Setup
-Navigate to the Frontend Directory:
-bash
-
+## Frontend Setup
+- Navigate to the Frontend Directory:
+```bash
 cd ../frontend
-
-Install Frontend Dependencies:
-bash
-
+```
+- Install Frontend Dependencies:
+```bash
 npm install
-
-Configure Environment:
-Create a .env file in the frontend directory:
-bash
-
+```
+- Configure Environment:
+  + Create a .env file in the frontend directory:
+```bash
 REACT_APP_API_URL=http://localhost:5000
+```
+  + This points the frontend to the local backend. Update this to your deployed backend URL when deploying.
 
-This points the frontend to the local backend. Update this to your deployed backend URL when deploying.
-
-Run the Frontend:
-bash
-
+- Run the Frontend:
+```bash
 npm start
+```
+- Open `http://localhost:3000` in your browser to use the app.
 
-Open http://localhost:3000 in your browser to use the app.
+## Deployment on Render.com
+- Backend (Web Service)
+- Create a new Web Service on Render.com.
 
-Deployment on Render.com
-Backend (Web Service)
-Create a new Web Service on Render.com.
+- Set the Root Directory to backend.
 
-Set the Root Directory to backend.
+- Set the Build Command to npm install.
 
-Set the Build Command to npm install.
+- Set the Start Command to node server.js.
 
-Set the Start Command to node server.js.
+- Add the `MONGO_URI` environment variable in the Environment section.
 
-Add the MONGO_URI environment variable in the Environment section.
+- Deploy the service and note the backend URL (e.g., https://your-backend-name.onrender.com).
 
-Deploy the service and note the backend URL (e.g., https://your-backend-name.onrender.com).
+## Frontend (Static Site)
+- Create a new Static Site on Render.com.
 
-Frontend (Static Site)
-Create a new Static Site on Render.com.
+- Set the Root Directory to frontend.
 
-Set the Root Directory to frontend.
+- Set the Build Command to `npm install && npm run build`.
 
-Set the Build Command to npm install && npm run build.
+- Set the Publish Directory to `build`.
 
-Set the Publish Directory to build.
+- Add the `REACT_APP_API_URL` environment variable in the Environment section, set to your backend URL (e.g., https://your-backend-name.onrender.com).
 
-Add the REACT_APP_API_URL environment variable in the Environment section, set to your backend URL (e.g., https://your-backend-name.onrender.com).
+- Deploy the service.
 
-Deploy the service.
-
-Usage
-Add a Task:
+## Usage
+- Add a Task:
 Enter a task description in the input field and click the "+" button.
 
-Edit a Task:
+- Edit a Task:
 Click the edit icon (pencil) next to a task to open an edit form, update the description, and save.
 
-Delete a Task:
+- Delete a Task:
 Click the delete icon (trash) to remove a task.
 
-Mark as Complete:
+- Mark as Complete:
 Click the completion button (circle/check) to toggle task completion status.
 
-View Tasks:
+- View Tasks:
 The task list updates automatically after any action using React state management.
 
-Code Explanation
-File: backend/server.js:
-Initializes an Express app, sets up middleware (CORS, express.json()), and connects to MongoDB Atlas.
+## Code Explanation
+- File: `backend/server.js`:
+  + Initializes an Express app, sets up middleware (CORS, express.json()), and connects to MongoDB Atlas.
 
-Listens on PORT (default 5000).
+  + Listens on PORT (default 5000).
 
-Includes CORS to allow requests from the separate frontend domain.
+  + Includes CORS to allow requests from the separate frontend domain.
 
-File: backend/routes/tasks.js:
-Defines RESTful API endpoints for tasks:
-POST /api/tasks: Creates a new task.
+- File: `backend/routes/tasks.js`:
+  + Defines RESTful API endpoints for tasks:
+  `POST /api/tasks`: Creates a new task.
 
-GET /api/tasks: Retrieves all tasks.
+  `GET /api/tasks`: Retrieves all tasks.
 
-PATCH /api/tasks/:id: Updates a task (e.g., description or completion status).
+  `PATCH /api/tasks/:id:` Updates a task (e.g., description or completion status).
 
-DELETE /api/tasks/:id: Deletes a task.
+  `DELETE /api/tasks/:id:` Deletes a task.
 
-Difference: Uses PATCH instead of PUT for partial updates, unlike the vanilla version.
+  + Difference: Uses `PATCH` instead of `PUT` for partial updates, unlike the vanilla version.
 
-File: backend/models/task.js:
-Defines a Mongoose schema for tasks with a description field and optional completed status.
+- File: `backend/models/task.js`:
+  + Defines a Mongoose schema for tasks with a description field and optional completed status.
 
-Same as the vanilla version.
+  + Same as the vanilla version.
 
-File: frontend/src/App.js:
-Main React component handling task management.
+- File: `frontend/src/App.js`:
+  + Main React component handling task management.
 
-Uses useState and useEffect for state management and fetching tasks on mount.
+  + Uses useState and useEffect for state management and fetching tasks on mount.
 
-Makes API requests with Axios to the backend.
+  + Makes API requests with Axios to the backend.
 
-Difference: Replaces the vanilla JavaScript DOM manipulation in main.js with React components and state.
+  + Difference: Replaces the vanilla JavaScript DOM manipulation in main.js with React components and state.
 
-File: frontend/src/App.css:
-Custom styles for the UI, complementing Tailwind CSS.
+- File: `frontend/src/App.css`:
+  + Custom styles for the UI, complementing Tailwind CSS.
 
-Similar to the vanilla version but adjusted for React’s component structure.
+  + Similar to the vanilla version but adjusted for React’s component structure.
 
-Learning Outcomes
-This project demonstrates:
-Building a full-stack web application with React, Node.js, and Express.
+## Learning Outcomes
+- This project demonstrates:
+- Building a full-stack web application with React, Node.js, and Express.
 
-Integrating MongoDB Atlas for data persistence.
+- Integrating MongoDB Atlas for data persistence.
 
-Separating frontend and backend into distinct services with RESTful API communication.
+- Separating frontend and backend into distinct services with RESTful API communication.
 
-Managing state and lifecycle in React using hooks (useState, useEffect).
+- Managing state and lifecycle in React using hooks (useState, useEffect).
 
-Handling CORS for cross-origin requests between separate domains.
+- Handling CORS for cross-origin requests between separate domains.
 
-Deploying a React app and Node.js backend on Render.com as separate services.
+- Deploying a React app and Node.js backend on Render.com as separate services.
 

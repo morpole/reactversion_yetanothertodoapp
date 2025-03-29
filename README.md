@@ -8,8 +8,19 @@ Created using React, Node.js, and MongoDB
 ## Deployed on Render.com  
 - **Frontend**: [https://reactversion-yetanothertodoapp-1.onrender.com/](https://reactversion-yetanothertodoapp-1.onrender.com/)  
 - **Backend**: [https://reactversion-yetanothertodoapp.onrender.com/](https://reactversion-yetanothertodoapp.onrender.com/)  
-<img src="./screenshots/todo-app-home.png" alt="todo-app-home" style="height:400px;">
-<img src="./screenshots/todo-app-editing.png" alt="todo-app-editing" style="height:400px;">
+
+<table>
+  <tr>
+    <td>
+      <img src="./screenshots/todo-app-home.png" alt="todo-app-home" style="height:400px;">
+      <p align="center"><em>Main task list-edit and delete options</em></p>
+    </td>
+    <td>
+     <img src="./screenshots/todo-app-editing.png" alt="todo-app-editing" style="height:400px;">
+      <p align="center"><em>Editing view of the task list</em></p>
+    </td>
+  </tr>
+</table>
 # Yet Another Todo App (React Version)
 
 A robust todo application built with React, Node.js, Express, and MongoDB. This project provides a web-based interface to manage tasks, including creation, editing, deletion, and completion tracking, with data persisted in a MongoDB Atlas database. Unlike the [vanilla JavaScript version](https://github.com/morpole/yet-another-todo-app), this version leverages React for a component-based frontend, separates the frontend and backend into distinct services on Render.com, and uses Axios for API requests. The UI is styled with Tailwind CSS and custom styles for a responsive experience.

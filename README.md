@@ -6,6 +6,7 @@ Frontend: https://reactversion-yetanothertodoapp-1.onrender.com/
 
 Created using React, Node.js, and MongoDB  
 ## Deployed on Render.com  
+(Will take a few seconds for render to activate free account & connect to backend)
 - **Frontend**: [https://reactversion-yetanothertodoapp-1.onrender.com/](https://reactversion-yetanothertodoapp-1.onrender.com/)  
 - **Backend**: [https://reactversion-yetanothertodoapp.onrender.com/](https://reactversion-yetanothertodoapp.onrender.com/)  
 
@@ -13,7 +14,7 @@ Created using React, Node.js, and MongoDB
   <tr>
     <td>
       <img src="./screenshots/todo-app-home.png" alt="todo-app-home" style="height:400px;">
-      <p align="center"><em>Main task list-edit and delete options</em></p>
+      <p align="center"><em>Main task list: edit & delete options</em></p>
     </td>
     <td>
      <img src="./screenshots/todo-app-editing.png" alt="todo-app-editing" style="height:400px;">

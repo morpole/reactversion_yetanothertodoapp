@@ -33,7 +33,7 @@ A robust todo application built with React, Node.js, Express, and MongoDB. This 
 - **API Communication**: Utilizes Axios for HTTP requests to the backend, replacing the `fetch` API used in the vanilla version.
 - **State Management**: Leverages React’s `useState` and `useEffect` hooks for state management and lifecycle handling, instead of manual DOM updates.
 - **CORS Handling**: Implements CORS on the backend to allow cross-origin requests from the separate frontend domain, which wasn’t needed in the single-service vanilla version.
-- **Testing**: The vanilla version includes Vitest unit tests, but this React version currently does not include frontend tests (future enhancement planned).
+
 
 ## Features
 
